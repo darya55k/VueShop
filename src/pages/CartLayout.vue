@@ -1,6 +1,7 @@
 <template>
   <div class="cart-layout">
-    <cart-list :carts="CART" />
+    <h2 class="product__title">Корзина</h2>
+    <cart-list v-if="CART.length" :carts="CART" />
   </div>
 </template>
 

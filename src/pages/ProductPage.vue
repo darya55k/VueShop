@@ -2,7 +2,7 @@
   <div class="product-page">
     <div class="container" v-if="product">
       <div class="main-container">
-        <img :src="product.img" :alt="product.title" />
+        <img class="image" :src="product.img" :alt="product.title" />
         <div class="main-info">
           <p class="section__description">{{ product.description1 }}</p>
           <h1 class="title__product">{{ product.title }}</h1>
@@ -71,11 +71,10 @@ import products from "../mocks/carts";
 import { mapActions } from "vuex";
 
 export default {
-  props: {
-    products: {
-      type: Array,
-      default: () => [],
-    },
+  data() {
+    return {
+      product: null,
+    };
   },
 
   created() {
@@ -88,14 +87,19 @@ export default {
   },
   methods: {
     ...mapActions(["ADD_TO_CART"]),
-    addToCart(product) {
-      this.ADD_TO_CART(product);
-      console.log(product);
+    addToCart() {
+      this.ADD_TO_CART(this.$data.product);
+      console.log(this.$data.product);
     },
   },
 };
 </script>
 <style>
+.image {
+  height: 400px;
+  width: 400px;
+  object-fit: contain;
+}
 .section__price {
   font-family: "Roboto";
   font-style: normal;
@@ -109,6 +113,10 @@ export default {
   color: white;
   padding: 15px 40px;
   margin-top: 30px;
+}
+.button:hover {
+  cursor: pointer;
+  background-color: cadetblue;
 }
 .title__product {
   font-family: "Roboto";

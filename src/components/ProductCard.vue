@@ -18,6 +18,9 @@ export default {
   props: {
     product: {
       type: Object,
+      default() {
+        return {};
+      },
     },
   },
   methods: {
@@ -33,7 +36,9 @@ export default {
   width: 300px;
 }
 .cart__img {
-  width: 380px;
+  width: 280px;
+  height: 280px;
+  object-fit: contain;
 }
 .title {
   font-family: "Roboto";

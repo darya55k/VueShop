@@ -7,7 +7,9 @@
         <div class="main__info">
           <h2 class="main__title">SKINDOM</h2>
           <p class="main__text">Специальные цены только до 30 апреля</p>
-          <button class="main__button">Перейти в каталог</button>
+          <router-link :to="{ name: 'AllCatalogPage' }"
+            ><button class="main__button">Перейти в каталог</button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -52,6 +54,10 @@ export default {
   color: white;
   padding: 15px 40px;
   margin-top: 40px;
+}
+.main__button:hover {
+  cursor: pointer;
+  background-color: cadetblue;
 }
 .main-page {
   h1 {

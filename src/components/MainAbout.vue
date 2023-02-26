@@ -67,15 +67,17 @@
 }
 .items__all {
   display: flex;
-  margin: 0;
-  padding: 0;
+  /* grid-template-columns: repeat(auto-fill, 377px); */
+  max-width: 1700px;
   justify-content: center;
+  gap: 60px;
+  margin: 0 auto;
 }
 .items__one {
   border: 1px solid rgba(0, 0, 0, 0.2);
 
   list-style: none;
-  width: 400px;
+  width: 377px;
   padding-top: 17px;
   padding-left: 30px;
   padding-bottom: 17px;

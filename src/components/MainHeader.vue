@@ -11,7 +11,10 @@
         </router-link>
 
         <div class="header__types">
-          <p class="header__type header__catalog">Каталог</p>
+          <router-link :to="{ name: 'AllCatalogPage' }"
+            ><p class="header__type header__catalog">Каталог</p>
+          </router-link>
+
           <p class="header__type header__club">Клуб косметологов</p>
           <p class="header__type header__sertificate">Сертификаты</p>
           <p class="header__type header__delivery">Доставка и оплата</p>
@@ -87,15 +90,15 @@ body {
   font-size: 18px;
   line-height: 150%;
 }
-.header__type:last-child {
+/* .header__type:last-child {
   padding-right: 0;
-}
+} */
 .header__icon {
   margin-left: 20px;
 }
-.header__icon:first-child {
+/* .header__icon:first-child {
   margin-left: 0;
-}
+} */
 p {
   margin: 0;
 }

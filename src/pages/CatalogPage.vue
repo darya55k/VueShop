@@ -1,43 +1,41 @@
 <template>
   <div class="product-list">
-    <cart-card
+    <product-card
       class="product-card"
-      v-for="(cart, index) in carts"
-      :key="cart.id"
-      :cart="cart"
+      v-for="product in products"
+      :key="product.id"
+      :product="product"
       @addToCart="addToCart"
-      @deleteFromCart="deleteFromCart(index)"
     />
   </div>
 </template>
 
 <script>
-import CartCard from "./CartCard";
 import { mapActions } from "vuex";
+import ProductCard from "../components/ProductCard";
 
 export default {
   props: {
-    carts: {
+    products: {
       type: Array,
       default: () => [],
     },
   },
-
-  components: { CartCard },
   methods: {
-    ...mapActions(["DELETE_FROM_CART"]),
-    deleteFromCart(index) {
-      this.DELETE_FROM_CART(index);
+    ...mapActions(["ADD_TO_CART"]),
+    addToCart(data) {
+      this.ADD_TO_CART(data);
     },
   },
+  components: { ProductCard },
 };
 </script>
 <style>
 .product-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 280px);
+  grid-template-columns: repeat(auto-fill, 380px);
   justify-content: center;
-  gap: 50px;
+  gap: 16px;
   margin: 0 auto;
 }
 </style>

@@ -10,6 +10,8 @@
 
     <p class="description">{{ cart.description1 }}</p>
     <p class="price">{{ cart.price }}</p>
+    <p class="quantity">Количество: {{ cart.quantity }}</p>
+    <button class="button" @click="deleteFromCart">Убрать из корзины</button>
   </div>
 </template>
 <script>
@@ -17,6 +19,23 @@ export default {
   props: {
     cart: {
       type: Object,
+      default() {
+        return {};
+      },
+    },
+  },
+  data() {
+    return {};
+  },
+  /* mounted() {
+    const cartItemData = this.cart;
+    cartItemData.quantity = 1;
+    },
+ */
+
+  methods: {
+    deleteFromCart() {
+      this.$emit("deleteFromCart");
     },
   },
 };
@@ -27,7 +46,9 @@ export default {
   width: 300px;
 }
 .cart__img {
-  width: 380px;
+  width: 280px;
+  height: 280px;
+  object-fit: contain;
 }
 .title {
   font-family: "Roboto";
