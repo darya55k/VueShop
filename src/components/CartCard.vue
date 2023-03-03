@@ -10,10 +10,16 @@
 
     <p class="description">{{ cart.description1 }}</p>
     <p class="price">{{ cart.price }}</p>
-    <p class="quantity">Количество: {{ cart.quantity }}</p>
+    <p class="quantity">
+      Количество:
+      <span @click="decrimentItem">-</span>
+      {{ cart.quantity }}
+      <span @click="incrementItem">+</span>
+    </p>
     <button class="button" @click="deleteFromCart">Убрать из корзины</button>
   </div>
 </template>
+
 <script>
 export default {
   props: {
@@ -27,13 +33,18 @@ export default {
   data() {
     return {};
   },
-  /* mounted() {
+  computed() {
     const cartItemData = this.cart;
     cartItemData.quantity = 1;
-    },
- */
+  },
 
   methods: {
+    decrimentItem() {
+      this.$emit("decrement");
+    },
+    incrementItem() {
+      this.$emit("increment");
+    },
     deleteFromCart() {
       this.$emit("deleteFromCart");
     },
